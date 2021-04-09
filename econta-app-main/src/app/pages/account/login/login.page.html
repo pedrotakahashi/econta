@@ -1,0 +1,48 @@
+<ion-content color="primary" class="login">
+  <div class="logo-topo">
+    <img src="assets/images/logo_econta.png" />
+  </div>
+
+  <div class=" ion-padding">
+    <ion-text class="ion-text-center" color="secondary">
+      <h6 class="title-card">
+        Acesse a sua conta
+      </h6>
+    </ion-text>
+
+    <div class="form-login">
+      <form [formGroup]="formGroup" (ngSubmit)="login()" novalidate>
+        <input-form type="email" label="e-mail" name="email" [submitted]="submitted" [formGroup]="formGroup">
+        </input-form>
+
+        <input-form label="senha" name="password" type="password" [submitted]="submitted" [formGroup]="formGroup">
+        </input-form>
+
+
+        <div class="item-button" lines="none">
+          <ion-button type="submit" [disabled]="loading" color="secondary" shape="round" expand="full">
+            <b>Entrar</b>
+            <ion-spinner *ngIf="loading" slot="end"></ion-spinner>
+          </ion-button>
+
+
+          <div routerLink="/forgot-password" class="text-recover forgot">
+            <span>
+              Esqueceu sua senha?
+            </span>
+          </div>
+
+          <!-- <div class="text-recover">
+            <span>
+              não tem cadastro?
+            </span>
+          </div>
+
+          <ion-button color="secondary" shape="round" expand="full" routerLink="/account-create">
+            <b>Não tem conta? Cadastre-se</b>
+          </ion-button> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

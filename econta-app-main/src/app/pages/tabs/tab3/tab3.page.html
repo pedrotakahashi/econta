@@ -1,0 +1,29 @@
+<ion-content class="tab3">
+  <ion-grid class="p-0">
+    <ion-row>
+      <ion-col>
+        <div class="header-image">
+          <div>Perfil</div>
+        </div>
+        <div class="ion-padding main-content" text-wrap text-center>
+          <div class="avatar">
+            <img src="assets/images/user-avatar.png" />
+          </div>
+          <div class="ion-text-center">
+            <h1 class="m-0">{{ user?.name }}</h1>
+            <p class="m-0">{{user?.email}}</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="ion-padding" style="margin-top: 2rem;padding-bottom: 68px;">
+      <ion-col class="ion-text-center">
+        <ion-button  (click)="logout()" color="danger">
+          Sair
+        </ion-button>
+     
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

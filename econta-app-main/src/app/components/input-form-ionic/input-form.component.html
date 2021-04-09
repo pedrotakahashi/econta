@@ -1,0 +1,33 @@
+<div [formGroup]="formGroup" class="field-wrapper" [class.passwords]="password" [class.hasValue]="f.value">
+  <input  [placeholder]="label" *ngIf="!mask && type != 'select' && type != 'textarea'" [type]="hide ? 'text' : type" [formControlName]="name"
+    [name]="name" [id]="name" [class.is-invalid]="submitted && f.errors" class="input-custom" />
+
+  <input [placeholder]="label" *ngIf="mask && type != 'select' && type != 'textarea'" [type]="hide ? 'text' : type" [formControlName]="name"
+    [name]="name" [id]="name" [class.is-invalid]="submitted && f.errors" data-toggle="input-mask" [mask]="mask"
+    class="input-custom" />
+
+  <ion-select [class.is-invalid]="submitted && f.errors" [multiple]="multiple" class="input-custom"
+    (ionChange)="emit('change', $event)" *ngIf="type == 'select'" [formControlName]="name" okText="Ok"
+    cancelText="Cancelar">
+    <ion-select-option *ngFor="let item of items" [value]="item[selectId]">
+      {{ item[selectLabel] }}
+    </ion-select-option>
+  </ion-select>
+
+  <textarea [placeholder]="label"  class="input-custom" [formControlName]="name" [rows]="rows" *ngIf="type == 'textarea'"></textarea>
+
+
+
+  <ng-container *ngIf="password">
+    <ion-icon *ngIf="type == 'password'" name="eye" slot="end" (click)="type = 'text'"></ion-icon>
+    <ion-icon *ngIf="type != 'password'" name="eye-off" slot="end" (click)="type = 'password'"></ion-icon>
+  </ng-container>
+</div>
+
+<span class="font-13 text-muted">{{ ex }}</span>
+<div *ngIf="submitted && f.errors" class="invalid-feedback">
+  <div *ngIf="f.errors.required">{{ label }} é obrigatório</div>
+  <div *ngIf="f.errors['Mask error']">{{ label }} com formato incorreto</div>
+  <div *ngIf="f.errors.cpf">{{ label }} está incorreto</div>
+  <div *ngIf="f.errors.cnpj">{{ label }} está incorreto</div>
+</div>

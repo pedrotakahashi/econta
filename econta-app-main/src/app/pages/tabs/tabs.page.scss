@@ -1,0 +1,19 @@
+
+ion-tab-bar {
+    height: 11.544227vh;
+  }
+  .tab-has-icon {
+    ion-icon,.ion-icon {
+      padding: 2.3vh;
+      border-radius: 50%;
+        color :var(--ion-color-light) !important;
+    }
+  }
+  .tab-selected {
+    ion-icon,.ion-icon {
+      background-color: #ffffff;
+      color: var(--ion-color-primary) !important;
+      
+    }
+  }
+  

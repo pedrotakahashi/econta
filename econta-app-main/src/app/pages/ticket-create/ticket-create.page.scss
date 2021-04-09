@@ -1,0 +1,14 @@
+.ticket-create{
+    font-family: Gilroy-Medium !important;
+    
+    .field-wrapper .input-custom,
+     .field-wrapper ion-datetime, 
+     .field-wrapper ion-textarea,
+      .field-wrapper ion-select {
+        color: black !important;
+
+    }
+    ion-button{
+        height: 36px;
+    }
+}

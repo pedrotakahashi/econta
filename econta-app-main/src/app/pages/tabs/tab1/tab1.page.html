@@ -1,0 +1,80 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Faturas
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="tab1" [fullscreen]="true">
+  <ion-row>
+    <ion-col col-12>
+      <ion-item>
+        <ion-label>Empresa</ion-label>
+        <ion-select (ionChange)="onChangeInvoiceMapCompany()" value="" [(ngModel)]="currentMapCompany"
+          okText="Selecionar" cancelText="Cancelar">
+          <ion-select-option value="">-- TODAS --
+          </ion-select-option>
+          <ion-select-option *ngFor="let item of listMapCompany" [value]="item">{{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-12>
+      <ion-item>
+        <ion-label>Vencimento</ion-label>
+        <ion-select (ionChange)="onChangeInvoiceMapCompany()" [(ngModel)]="currentMonth" value="" okText="Selecionar"
+          cancelText="Cancelar">
+          <ion-select-option value="">-- TODOS --
+          </ion-select-option>
+        
+          <ion-select-option *ngFor="let item of listMonth" [value]="item">{{item.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-col>
+    <ion-col size="12" *ngIf="loading" class="ion-text-center">
+      <ion-spinner name="bubbles"></ion-spinner>
+
+    </ion-col>
+    <ion-col class="ion-padding" size="12" *ngIf="!loading">
+
+
+      <ion-list class="ion-no-padding">
+        <ion-row>
+          <ion-col class="ion-text-end">
+            Total {{list.length}}
+
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let item of list">
+
+          <ion-col class="mb-0 pb-0" size="12">
+            <ion-label>
+              <h2 class="ion-text-nowrap">{{ item.companyName }}</h2>
+            </ion-label>
+          </ion-col>
+          <ion-col class="mt-0 pt-0" size="8">
+
+            <ion-label>
+              <h3>{{ item.accountNumber }}</h3>
+              <p>R$ {{ item.invoiceAmount }} - {{ item.dueDate | date:'dd MMM, yyyy' }}</p>
+            </ion-label>
+          </ion-col>
+          <ion-col class="ion-text-end" size="4">
+            <ion-button color="light" class="downloadIcon" href="{{urlbase + item.fileLink}}" target="_blank"
+              *ngIf="item.fileLink">
+              <ion-icon name="cloud-download-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <!-- <hr> -->
+        </ion-row>
+
+      </ion-list>
+
+    </ion-col>
+
+  </ion-row>
+
+</ion-content>

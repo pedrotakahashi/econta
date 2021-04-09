@@ -1,0 +1,7 @@
+{
+  "name": "econta-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

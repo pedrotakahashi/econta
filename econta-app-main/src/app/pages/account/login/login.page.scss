@@ -1,0 +1,40 @@
+.login {
+    ion-button {
+      text-transform: initial !important;
+    }
+    .ion-padding{
+      padding: 21px !important;
+    }
+    .text-recover {
+      text-align: center;
+      margin: 6em 0 1em 0;
+      position: relative;
+      border-top: solid 2px #ffffff;
+  
+      font-family: Gilroy-Medium;
+      font-size: 12px;
+      line-height: 14px;
+    }
+    .forgot{
+      color: var(--ion-color-secondary) !important;
+      border-top: none !important;
+      margin: 8px;
+      span{
+        top: 0px;
+      }
+    }
+  
+    span {
+      top: -0.775em;
+      padding: 0 1em 0 1em;
+      background: var(--ion-color-primary) !important;
+      position: relative;
+      display: inline-block;
+    }
+  
+    .logo-topo {
+      margin-top: 11.244377811094452vh;
+      text-align: center;
+    }
+  }
+  

@@ -1,0 +1,56 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Faturas
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="tab2" [fullscreen]="true">
+  <ion-row>
+
+    <ion-col size="12" *ngIf="loading" class="ion-text-center">
+      <ion-spinner name="bubbles"></ion-spinner>
+
+    </ion-col>
+    <ion-col class="ion-padding" size="12" *ngIf="!loading">
+
+
+      <ion-list class="ion-no-padding">
+        <ion-row>
+          <ion-col class="ion-text-end">
+            Total {{list.length}}
+          </ion-col>
+        </ion-row>
+
+        <ion-item routerLink="{{ '/ticket-create/' + item.id }}" *ngFor="let item of list">
+          <ion-label>
+            <h2>{{ item.title }}</h2>
+
+            <p>
+              <b>{{ getUserName(item.userId) }}</b>- {{ (item.updatedAt ? item.updatedAt : item.createdAt ) |
+              date:'dd/MM/yyyy' }} às
+              {{ (item.updatedAt ? item.updatedAt : item.createdAt ) | date:'HH:mm' }}<br>
+              <b>{{ getUserName(item?.lastMessage?.userId) }}</b>-{{ item?.lastMessage?.message}}
+            </p>
+            <ion-badge mode="ios" *ngIf="item.state == 'open'" color="success">Aberto</ion-badge>
+            <ion-badge mode="ios" *ngIf="item.state == 'processing'" color="warning">Em processo</ion-badge>
+            <ion-badge mode="ios" *ngIf="item.state == 'finish'" color="medium">Finalizado</ion-badge>
+          </ion-label>
+        </ion-item>
+
+
+      </ion-list>
+
+    </ion-col>
+
+  </ion-row>
+
+  <ion-fab routerLink="/ticket-create" routerLinkActive="router-link-active" color="primary" vertical="bottom"
+    horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon color="light" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

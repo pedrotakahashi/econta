@@ -1,0 +1,84 @@
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-button href="javascript:history.back()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Chamado</ion-title>
+
+</ion-toolbar>
+
+
+<ion-content class="ticket-create">
+  <div class="card-box m-2">
+    <!-- <div class="row m-1">
+      <div class="col-12">
+        <ngb-alert type="danger" *ngIf="error" (close)="error = ''">{{error}}</ngb-alert>
+      </div>
+    </div> -->
+    <ion-row>
+      <ion-col size="12" *ngIf="loading" class="ion-text-center">
+        <ion-spinner name="bubbles"></ion-spinner>
+
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
+
+      <div class=" mt-1">
+        <input-form label='Título' name='title' [submitted]='submitted' [formGroup]="formGroup">
+        </input-form>
+      </div>
+
+      <div *ngIf="data.id" class=" mt-1">
+        <input-form type="select" [items]="listStatus" label='Status' name='state' [submitted]='submitted'
+          [formGroup]="formGroup">
+        </input-form>
+      </div>
+
+      <div class=" mt-1" *ngIf="!data.id">
+        <input-form type="textarea" name='message' [submitted]='submitted' [formGroup]="formMessage" [rows]="6"
+          label="Digite o seu problema...">
+        </input-form>
+      </div>
+
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="full" href="javascript:history.back()" size="small" color="medium" shape="round"
+            fill="outline">Voltar
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+
+          <ion-button expand="full" type="submit" [disabled]="submitting" size="small" color="primary" shape="round"
+            fill="outline">
+            <ion-spinner class=" mr-1" *ngIf="submitting" name="bubbles"></ion-spinner>
+            Salvar
+          </ion-button>
+
+        </ion-col>
+        <ion-col *ngIf="data.id" size="12">
+          <ion-button (click)="addTicket()" expand="full" size="small" color="success" shape="round" fill="outline"> +
+            Comentário
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+    <ion-row *ngIf="data.id">
+      <ion-col>
+        <ul class="list-unstyled timeline-sm">
+          <li *ngFor="let item of data.messages" class="timeline-sm-item">
+            <span class="timeline-sm-date">{{ item.createDate | date:'dd/MM/yyyy' }}
+
+              <small>às {{ item.createDate | date:'HH:mm' }}</small>
+            </span>
+            <h5 class="mt-0 mb-1">{{ getUserName(item.userId) }}</h5>
+            <p class="text-muted mt-2">{{ item.message }}</p>
+          </li>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

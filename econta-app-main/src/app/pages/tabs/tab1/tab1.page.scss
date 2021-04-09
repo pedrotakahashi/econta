@@ -1,0 +1,22 @@
+.tab1{
+    font-family: Gilroy-Medium !important;
+    ion-label{
+    font-family: Gilroy-Medium !important;
+
+    }
+    h2{
+        font-family: Gilroy-SemiBold;
+    }
+    hr{
+        border-width: var(--inner-border-width);
+        border-style: var(--border-style);
+        border-color: var(--border-color);
+        box-shadow: var(--inner-box-shadow);
+        width: 100%;
+    }
+    // .downloadIcon{
+    //     position: relative;
+    //     top: 50;
+
+    // }
+}
