@@ -33,7 +33,7 @@ export abstract class FirebaseAbstract<T extends BaseModel> {
     const doc = this.cloneObject(data);
     if (this.seeTimestamp) {
       doc.updatedAt = this.timestamp;
-      delete doc.createdAt;
+      // delete doc.createdAt;
     }
     delete doc.id;
     return this.collection().doc(data.id).update(doc);

@@ -57,6 +57,7 @@ export class AuthenticationService {
    * @deprecated The method should not be used at the instance of AuthenticationService.
    * Use as an instance of AuthSessionService
    */
+  
   getLoggedUser() {
     const user = this.afa.authState.pipe(first()).toPromise();
     return user;

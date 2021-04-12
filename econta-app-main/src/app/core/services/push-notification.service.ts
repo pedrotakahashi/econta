@@ -19,5 +19,6 @@ export class PushNotificationService extends FirebaseAbstract<PushNotification>{
   setReadNotification(id, read = true) {
     return super.update({id, read});
   }
-
+  
 }
+

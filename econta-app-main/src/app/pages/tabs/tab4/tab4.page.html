@@ -6,9 +6,20 @@
           Notificações
         </ion-label>
       </ion-item>
-
-
     </ion-col>
   </ion-row>
-  
+
+    <ion-list *ngFor = "let item of list">
+      <ion-item>
+        <ion-label>
+          <h2 class="ion-text-nowrap">Mensagem:  {{item.message}}</h2>
+          <h2 class="ion-text-nowrap">Criado em:  {{item.createdAt | date:'dd/MM/yyyy'}}</h2>
+          <h2>Status:
+            <span class="ion-text-nowrap" 
+            [ngStyle] = "{'color' : item.read? 'red' : 'gray'}"> {{item.read}}</span></h2>
+            <ion-button size="small"> Visualizar</ion-button>
+        </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+

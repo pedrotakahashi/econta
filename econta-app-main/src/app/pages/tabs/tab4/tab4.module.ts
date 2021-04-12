@@ -1,10 +1,12 @@
+import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-import { RouterModule, Routes } from '@angular/router';
 import { Tab4Page } from './tab4.page';
+import { RouterModule, Routes } from '@angular/router';
+import { NgxMaskModule } from 'ngx-mask';
+
+
 
 const routes: Routes = [
   {
@@ -13,14 +15,15 @@ const routes: Routes = [
   }
 ];
 
-
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
-    IonicModule,
     RouterModule.forChild(routes),
+    NgxMaskModule
+    
   ],
   declarations: [Tab4Page]
 })
-export class Tab4PageModule {}
+export class Tab4PageModule { }

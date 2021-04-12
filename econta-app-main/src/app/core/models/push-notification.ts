@@ -5,4 +5,7 @@ export class PushNotification extends BaseModel {
     ownerId =  '';
     read =  false;
     readDate =  null;
+
+    
+
 }
