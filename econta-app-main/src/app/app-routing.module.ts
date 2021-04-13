@@ -32,7 +32,12 @@ const routes: Routes = [
   {
     path: 'ticket-create/:id',
     loadChildren: () => import('./pages/ticket-create/ticket-create.module').then( m => m.TicketCreatePageModule)
-  }
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
+  },
+
 ];
 @NgModule({
   imports: [

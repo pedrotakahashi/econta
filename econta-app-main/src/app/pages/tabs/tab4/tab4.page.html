@@ -1,25 +1,25 @@
 <ion-content>
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label>
+  <ion-row >
+    <ion-col class="bg-title">
+      <ion-item> 
+        <ion-title >
           Notificações
-        </ion-label>
+        </ion-title>
       </ion-item>
     </ion-col>
   </ion-row>
 
     <ion-list *ngFor = "let item of list">
       <ion-item>
-        <ion-label>
-          <h2 class="ion-text-nowrap">Mensagem:  {{item.message}}</h2>
-          <h2 class="ion-text-nowrap">Criado em:  {{item.createdAt | date:'dd/MM/yyyy'}}</h2>
-          <h2>Status:
-            <span class="ion-text-nowrap" 
-            [ngStyle] = "{'color' : item.read? 'red' : 'gray'}"> {{item.read}}</span></h2>
-            <ion-button size="small"> Visualizar</ion-button>
+        <ion-label (click) = "updateStatus(item)">
+          <span class="ion-text-nowrap">Mensagem:</span>  <h4>{{item.message}}</h4>
+          <h2 class="ion-text-nowrap">Criado em:  {{item.createdAt | date:'short'}}</h2>
+          <span class="ion-hide"> {{item.read}}</span>
+            
+            
         </ion-label>
     </ion-item>
   </ion-list>
+  
 </ion-content>
 

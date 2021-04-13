@@ -1,0 +1,25 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notificação</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tab4"></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor = "let item of list">
+  <ion-item > 
+    <ion-label>
+    <h3>{{item.message}}</h3>
+    </ion-label>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>
+    <h4> Visto em: {{item.readDate | date:'short'}}</h4>
+    </ion-label>
+</ion-item>
+<!-- <app-tabs></app-tabs> -->
+</ion-content>

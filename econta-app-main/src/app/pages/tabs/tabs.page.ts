@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tabs',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  // @Output() tabRedirect  = new EventEmitter(); 
 
   constructor() {}
 
