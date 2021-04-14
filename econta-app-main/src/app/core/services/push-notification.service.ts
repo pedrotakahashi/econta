@@ -19,6 +19,14 @@ export class PushNotificationService extends FirebaseAbstract<PushNotification>{
   setReadNotification(id, read = true) {
     return super.update({id, read});
   }
+
+  getByOwnerIdOrder(id){
+    return super.getWhereOrder('ownerId', '==', id,'createdAt','desc')
+  }
+
+  getAsyncByOwnerIdOrder(id){
+    return super.getAsyncWhereOrder('ownerId', '==', id,'createdAt','desc')
+  }
   
 }
 
