@@ -5,7 +5,6 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { PushNotification } from 'src/app/core/models/push-notification';
 import { UserService } from 'src/app/core/services/user.service';
 import { AuthSessionService } from 'src/app/core/services/auth-session.service';
-
 import { Router } from '@angular/router';
 
 
@@ -30,15 +29,16 @@ export class Tab4Page implements OnInit {
 
   async ngOnInit() {
     this.user = this._authService.getLoggedUser();
-    // await this.loadList()
     this.asyncLoadList();
 
   }
+  //EOF
 
   async loadList(){
     this.list = await this._push.getByOwnerIdOrder(this.user.ownerId);
     console.log(this.list)
   }
+  //EOF
 
   asyncLoadList(){
     this._push.getAsyncByOwnerIdOrder(this.user.ownerId).subscribe((docs) =>{
@@ -55,13 +55,13 @@ export class Tab4Page implements OnInit {
           }
         }
         this.list.sort((a, b) => (a.createdAt < b.createdAt ? -1 : 1));  
-      
-      
       })
 
     });
     console.log(this.list)
   }
+  //EOF
+
      updateStatus(valor: PushNotification){
       console.log(valor)
       if(!valor.read){
@@ -73,21 +73,7 @@ export class Tab4Page implements OnInit {
       this.router.navigate(['/notification'])
 
     }
-
-    verify(item){
-      if(item.read){
-        return 'mail-open-outline'
-      } else {
-        return 'mail-unread-outline'
-      }
-    }
+    //EOF
     
-    verify2(item){
-      if(item.read){
-        return true
-      } else {
-        return false
-      }
-    }
 
 }

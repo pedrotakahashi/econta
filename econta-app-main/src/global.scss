@@ -552,3 +552,13 @@ ion-text {
   .mx-auto {
     margin-left: auto !important;
   }
+
+  .popover-content{
+    width: 95%  !important;
+    filter: blur(0) !important;
+    border-radius: 20px  !important;
+  }
+
+  .alert-wrapper {
+    filter: blur(0) !important;
+  }

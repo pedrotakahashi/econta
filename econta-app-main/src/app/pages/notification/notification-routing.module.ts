@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TabsPage } from '../tabs/tabs.page';
-
 import { NotificationPage } from './notification.page';
 
 const routes: Routes = [
@@ -10,8 +8,11 @@ const routes: Routes = [
     component: NotificationPage
   },
 
+  {
+    path:'/view/:id',
+    component: NotificationPage
+  }
   
- 
   
 ];
 

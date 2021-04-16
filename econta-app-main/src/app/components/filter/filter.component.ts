@@ -1,20 +1,22 @@
-import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
-import { Invoice } from "src/app/core/models/invoice";
+import { Invoice } from "./../../core/models/invoice";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { PopoverController } from "@ionic/angular";
 import { InvoiceMap } from "src/app/core/models/invoice-map";
 import { InvoiceMapService } from "src/app/core/services/invoice-map.service";
 import { InvoiceService } from "src/app/core/services/invoice.service";
 import { UserService } from "src/app/core/services/user.service";
 import { environment } from "src/environments/environment";
-import { PopoverController } from "@ionic/angular";
-import {FilterComponent,} from "src/app/components/filter/filter.component";
+
+
 
 @Component({
-  selector: "app-tab1",
-  templateUrl: "tab1.page.html",
-  styleUrls: ["tab1.page.scss"],
+  selector: "app-filter",
+  templateUrl: "./filter.component.html",
+  styleUrls: ["./filter.component.scss"],
 })
+export class FilterComponent implements OnInit {
 
-export class Tab1Page implements OnInit {
+  
 
   list: Invoice[] = [];
   listFull: Invoice[] = [];
@@ -26,18 +28,17 @@ export class Tab1Page implements OnInit {
   currentMapCompany: InvoiceMap = null;
   totalRecords = 0;
   urlbase = environment.apiOperativeBaseUrl;
-
   loading = true;
+
   constructor(
+    public popoverController: PopoverController,
     private _invoice: InvoiceService,
     private _invoiceMap: InvoiceMapService,
-    private _user: UserService,
-    public popoverController: PopoverController
+    private _user: UserService
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.loading = true;
-    //next func open the modalBox with searchBar
   }
 //EOF
   ionViewWillEnter() {
@@ -46,6 +47,7 @@ export class Tab1Page implements OnInit {
 //EOF
   async loadList() {
     const customer = await this._user.getUser();
+
     try {
       this.list = this.listFull = await this._invoice.getAllByCustomerId(
         customer.ownerId
@@ -125,25 +127,13 @@ export class Tab1Page implements OnInit {
       }
       this.currentMapCompany = null;
     }
-  }
-//EOF
-  async presentPopover() {
-    console.log("presentPopover() is okay!");
-    const popover = await this.popoverController.create({
-      component: FilterComponent,
-      cssClass: "filter.component.scss",
-      translucent: true,
-      componentProps: {
-      },
-    });
+   
+  } 
+  //EOF
 
-    await popover.present();
-    const { data } = await popover.onDidDismiss();
-    console.log("resultado:", data);
-    if(data && data.list){
-      this.list = data.list;
-    }
-    
+  fitnessButton(){
+    this.popoverController.dismiss({
+      list: this.list
+    });
   }
-//EOF
 }

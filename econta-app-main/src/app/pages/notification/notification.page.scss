@@ -1,0 +1,9 @@
+.session-modal-container .modal-backdrop {
+    z-index: 100;
+  }
+  .session-modal-container .session-dialog {
+    z-index: 999999;
+  }
+  .session-modal-container .modal-dialog {
+    margin: 30vh auto;
+  }

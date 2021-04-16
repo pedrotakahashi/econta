@@ -1,0 +1,35 @@
+<ion-row>
+  <ion-col col-12>
+    <ion-item> 
+      <ion-label>Empresa</ion-label>
+      <ion-select (ionChange)="onChangeInvoiceMapCompany()" value="" 
+      [(ngModel)]="currentMapCompany" okText="Selecionar" cancelText="Cancelar">
+        <ion-select-option value="">-- TODAS --
+        </ion-select-option>
+        <ion-select-option *ngFor="let item of listMapCompany" [value]="item">{{item.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+
+  <ion-col col-12>
+    <ion-item>
+      <ion-label>Vencimento</ion-label>
+      <ion-select (ionChange)="onChangeInvoiceMapCompany()" [(ngModel)]="currentMonth" value="" okText="Selecionar"
+        cancelText="Cancelar">
+        <ion-select-option value="">-- TODOS --
+        </ion-select-option>
+        <ion-select-option *ngFor="let item of listMonth" [value]="item">{{item.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <ion-button (click) = "fitnessButton()" fill ="clear"  class="d-flex justify-content-center"> Filtrar</ion-button>
+    </div>
+  </div>
+</div>
+

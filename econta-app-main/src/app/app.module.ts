@@ -17,6 +17,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localePt);
 
@@ -32,7 +33,8 @@ registerLocaleData(localePt);
      AngularFireAuthModule,
      AngularFirestoreModule,
      AngularFireStorageModule,
-     HttpClientModule
+     HttpClientModule,
+     NgbModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-PT' },

@@ -8,31 +8,6 @@
 
 <ion-content class="tab1" [fullscreen]="true">
   <ion-row>
-    <ion-col col-12>
-      <ion-item>
-        <ion-label>Empresa</ion-label>
-        <ion-select (ionChange)="onChangeInvoiceMapCompany()" value="" [(ngModel)]="currentMapCompany"
-          okText="Selecionar" cancelText="Cancelar">
-          <ion-select-option value="">-- TODAS --
-          </ion-select-option>
-          <ion-select-option *ngFor="let item of listMapCompany" [value]="item">{{item.name}}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-    <ion-col col-12>
-      <ion-item>
-        <ion-label>Vencimento</ion-label>
-        <ion-select (ionChange)="onChangeInvoiceMapCompany()" [(ngModel)]="currentMonth" value="" okText="Selecionar"
-          cancelText="Cancelar">
-          <ion-select-option value="">-- TODOS --
-          </ion-select-option>
-        
-          <ion-select-option *ngFor="let item of listMonth" [value]="item">{{item.name}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-    </ion-col>
     <ion-col size="12" *ngIf="loading" class="ion-text-center">
       <ion-spinner name="bubbles"></ion-spinner>
 
@@ -70,11 +45,15 @@
           </ion-col>
           <!-- <hr> -->
         </ion-row>
-
       </ion-list>
-
     </ion-col>
-
   </ion-row>
 
+  <!-- Componente de filtro -->
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click) = "presentPopover()" >
+    <ion-fab-button>
+      <ion-icon name="search-outline" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+

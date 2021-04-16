@@ -28,9 +28,6 @@ export class NotificationPage implements OnInit {
     this.list = await this._push.getWhere('ownerId', '==', (await this._authService.getLoggedUser().ownerId));
     console.log(this.list)
     
-    // if(tab){
-    //   this.router.navigate()
-    // }
-  }
+   }
 
 }

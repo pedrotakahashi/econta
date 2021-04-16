@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { RouterModule, Routes } from '@angular/router';
+import { FilterComponent } from 'src/app/components/filter/filter.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,6 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page, FilterComponent]
 })
 export class Tab1PageModule { }
