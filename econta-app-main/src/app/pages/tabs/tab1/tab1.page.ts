@@ -128,7 +128,7 @@ export class Tab1Page implements OnInit {
   }
 //EOF
   async presentPopover() {
-    console.log("presentPopover() is okay!");
+    // console.log("presentPopover() is okay!");
     const popover = await this.popoverController.create({
       component: FilterComponent,
       cssClass: "filter.component.scss",
@@ -139,7 +139,7 @@ export class Tab1Page implements OnInit {
 
     await popover.present();
     const { data } = await popover.onDidDismiss();
-    console.log("resultado:", data);
+    // console.log("resultado:", data);
     if(data && data.list){
       this.list = data.list;
     }

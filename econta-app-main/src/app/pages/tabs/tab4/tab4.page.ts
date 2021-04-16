@@ -70,8 +70,8 @@ export class Tab4Page implements OnInit {
          this._push.update(valor)
       }
       
-      this.router.navigate(['/notification'])
-
+      this.router.navigate(['/notification/view', valor.id])
+  /*path:'/view/:id',*/
     }
     //EOF
     

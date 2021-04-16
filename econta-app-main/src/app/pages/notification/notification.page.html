@@ -1,6 +1,6 @@
 
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color ="primary">
     <ion-title>Notificação</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="tab4"></ion-back-button>
@@ -9,17 +9,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngFor = "let item of list">
+<ion-content>
+  
+  <ion-item>
+    <ion-text>
+      <ion-label>
+        <h2 class="d-flex">{{item.title}}
+          <span class="date-flex">
+            Visto em: {{item.readDate | date:'HH:mm'}}
+          </span>
+        </h2>
+      </ion-label>
+    
+      
+      
+    </ion-text>
+  </ion-item>
   <ion-item > 
     <ion-text>
     <h3>{{item.message}}</h3>
     </ion-text>
+    
   </ion-item>
-  
-  <ion-item>
-    <ion-label>
-    <h4> Visto em: {{item.readDate | date:'short'}}</h4>
-    </ion-label>
-</ion-item>
-<!-- <app-tabs></app-tabs> -->
+
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+  </ion-toolbar>
+</ion-footer>

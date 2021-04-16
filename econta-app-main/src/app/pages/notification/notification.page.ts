@@ -11,23 +11,23 @@ import { PushNotificationService } from 'src/app/core/services/push-notification
   styleUrls: ['./notification.page.scss'],
 })
 export class NotificationPage implements OnInit {
-
-  private router:Router;
-  private activatedRoute: ActivatedRoute;
-  list: PushNotification [] = [];
+  item = new PushNotification()
+  
   
   constructor(
-    private _authService : AuthSessionService,
     private _push: PushNotificationService,
+    private activatedRoute: ActivatedRoute,
 
 
   ) { }
   async ngOnInit() {
-    // const tab = this.activatedRoute.snapshot.paramMap.get('tab');
-    
-    this.list = await this._push.getWhere('ownerId', '==', (await this._authService.getLoggedUser().ownerId));
-    console.log(this.list)
-    
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if(id) {
+      const doc = await this._push.getById(id);
+      if(doc){
+        this.item = doc;
+      }
+    }
    }
 
 }

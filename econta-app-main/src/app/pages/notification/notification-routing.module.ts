@@ -5,13 +5,19 @@ import { NotificationPage } from './notification.page';
 const routes: Routes = [
   {
     path: '',
-    component: NotificationPage
+    redirectTo:'view',
+    pathMatch:'full'
   },
 
   {
-    path:'/view/:id',
+    path:'view',
     component: NotificationPage
-  }
+  },
+  
+  {
+    path:'view/:id',
+    component: NotificationPage
+  },
   
   
 ];
